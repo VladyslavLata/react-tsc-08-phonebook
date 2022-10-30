@@ -2,18 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { register, login, logout, refreshUser } from './operations';
+import { IUser, IAuthState } from "types/typers";
 
-interface IUser {
-  name: string | null;
-  email: string | null;
-}
+// interface IUser {
+//   name: string | null;
+//   email: string | null;
+// }
 
-interface IAuthState {
-  user: IUser;
-  token: string | null;
-  isLoggedIn: boolean;
-  isRefreshing: boolean;
-}
+// interface IAuthState {
+//   user: IUser;
+//   token: string | null;
+//   isLoggedIn: boolean;
+//   isRefreshing: boolean;
+// }
 
 const initialState: IAuthState = {
   user: { name: null, email: null },
