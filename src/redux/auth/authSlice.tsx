@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { register, login, logout, refreshUser } from './operations';
-import { IUser, IAuthState } from "types/typers";
+import { IUser, IAuthState, ILogin } from "types/typers";
 
 // interface IUser {
 //   name: string | null;
@@ -30,7 +30,7 @@ export const authSlice = createSlice({
     builder
       .addCase(
         register.fulfilled,
-        (state, action: PayloadAction<{ user: IUser; token: string }>) => {
+        (state, action: PayloadAction<ILogin>) => {
           state.user = action.payload.user;
           state.token = action.payload.token;
           state.isLoggedIn = true;
@@ -38,7 +38,7 @@ export const authSlice = createSlice({
       )
       .addCase(
         login.fulfilled,
-        (state, action: PayloadAction<{ user: IUser; token: string }>) => {
+        (state, action: PayloadAction<ILogin>) => {
           state.user = action.payload.user;
           state.token = action.payload.token;
           state.isLoggedIn = true;

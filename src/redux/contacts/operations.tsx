@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { IItem } from 'types/typers';
 
-export const fetchContacts = createAsyncThunk(
+export const fetchContacts = createAsyncThunk<IItem[] | [], undefined,  { rejectValue: string }>(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const contacts = await axios.get('/contacts');
-      return contacts.data;
+      const {data} = await axios.get<IItem[]| [] >('/contacts');
+      return data;
     } catch (error) {
+     if (error instanceof Error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+    return thunkAPI.rejectWithValue('Unknown error!');
     }
   }
 );
