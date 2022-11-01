@@ -23,14 +23,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.AuthNav = void 0;
+const Box_1 = require("components/Box/Box");
+const SC = __importStar(require("../Navigation/Navigation.styled"));
+const AuthNav = () => {
+    return (<Box_1.Box as="ul" display="flex" gridGap={4}>
+      <SC.Item>
+        <SC.Link to="/login">Log In</SC.Link>
+      </SC.Item>
+      <SC.Item>
+        <SC.Link to="/register">Register</SC.Link>
+      </SC.Item>
+    </Box_1.Box>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.AuthNav = AuthNav;
+//# sourceMappingURL=AuthNav.jsx.map

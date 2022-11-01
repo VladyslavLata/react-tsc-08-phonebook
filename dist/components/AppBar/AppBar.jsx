@@ -23,14 +23,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.AppBar = void 0;
+const Navigation_1 = require("components/Navigation/Navigation");
+const AuthNav_1 = require("components/AuthNav/AuthNav");
+const useAuth_1 = require("hooks/useAuth");
+const UserMenu_1 = require("components/UserMenu/UserMenu");
+const SC = __importStar(require("./AppBar.styled"));
+const AppBar = () => {
+    const { isLogined } = (0, useAuth_1.useAuth)();
+    return (<SC.Header>
+      <Navigation_1.Navigation />
+      {isLogined ? <UserMenu_1.UserMenu /> : <AuthNav_1.AuthNav />}
+    </SC.Header>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.AppBar = AppBar;
+//# sourceMappingURL=AppBar.jsx.map

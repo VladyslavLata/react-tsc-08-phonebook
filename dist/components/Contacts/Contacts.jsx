@@ -23,14 +23,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.Contacts = void 0;
+const SC = __importStar(require("./Contacts.styled"));
+const ButtonDelete_1 = require("components/ButtonDelete/ButtonDelete");
+const react_redux_1 = require("react-redux");
+const selectors_1 = require("redux/contacts/selectors");
+const vsc_1 = require("react-icons/vsc");
+const Contacts = ({ onRemoveContact }) => {
+    const visibleContacts = (0, react_redux_1.useSelector)(selectors_1.selectVisibleContacts);
+    return (<SC.ContactsList>
+      {visibleContacts.map(({ name, number, id }, i) => (<SC.ContactCard key={id} index={i}>
+          <div>
+            <h3>{name}</h3>
+            <SC.Number>{number}</SC.Number>
+          </div>
+          <ButtonDelete_1.ButtonDelete onRemoveContact={onRemoveContact} id={id} index={i}>
+            <vsc_1.VscClose />
+          </ButtonDelete_1.ButtonDelete>
+        </SC.ContactCard>))}
+    </SC.ContactsList>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.Contacts = Contacts;
+//# sourceMappingURL=Contacts.jsx.map

@@ -23,14 +23,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.ButtonIcon = void 0;
+const SC = __importStar(require("./ButtonIcon.styled"));
+const ButtonIcon = ({ size, position, onClick, children }) => {
+    return (<SC.Button size={size} position={position} onClick={() => onClick()}>
+      {children}
+    </SC.Button>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.ButtonIcon = ButtonIcon;
+//# sourceMappingURL=ButtonIcon.jsx.map

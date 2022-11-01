@@ -42,3 +42,17 @@ export interface IState {
   contacts: IContactsState;
 }
 
+export interface IPropsChildren {
+  children: React.ReactNode
+}
+
+export interface IValueForm {
+  name: string,
+  email: string,
+  password: string,
+}
+
+export interface IContactForm{
+  name: string,
+  number: string,
+}

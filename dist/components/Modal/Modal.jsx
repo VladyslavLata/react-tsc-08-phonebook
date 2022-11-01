@@ -23,14 +23,35 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.Modal = void 0;
+const react_dom_1 = require("react-dom");
+const react_1 = require("react");
+const ri_1 = require("react-icons/ri");
+const SC = __importStar(require("./Modal.styled"));
+const modalEl = document.getElementById('modal');
+const Modal = ({ onClose, children }) => {
+    (0, react_1.useEffect)(() => {
+        const closeModalPressEsc = (e) => {
+            if (e.code === 'Escape') {
+                onClose();
+            }
+        };
+        window.addEventListener('keydown', closeModalPressEsc);
+        return () => window.removeEventListener('keydown', closeModalPressEsc);
+    }, [onClose]);
+    const closeModalClickBackdrop = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    };
+    return (0, react_dom_1.createPortal)(<SC.Backdrop onClick={closeModalClickBackdrop}>
+      <SC.ModalWrap>
+        {children}
+        <SC.ButtonCloseModal onClick={() => onClose()}>
+          <ri_1.RiCloseFill />
+        </SC.ButtonCloseModal>
+      </SC.ModalWrap>
+    </SC.Backdrop>, modalEl);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.Modal = Modal;
+//# sourceMappingURL=Modal.jsx.map

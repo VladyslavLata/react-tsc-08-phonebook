@@ -23,14 +23,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.UserMenu = void 0;
+const useAuth_1 = require("hooks/useAuth");
+const TSReduxHooks_1 = require("hooks/TSReduxHooks");
+const operations_1 = require("redux/auth/operations");
+const Button_1 = require("components/Button/Button");
+const Box_1 = require("components/Box/Box");
+const SC = __importStar(require("./UserMenu.styled"));
+const UserMenu = () => {
+    const dispatch = (0, TSReduxHooks_1.useAppDispatch)();
+    const { user } = (0, useAuth_1.useAuth)();
+    const userLogout = () => dispatch((0, operations_1.logout)());
+    return (<Box_1.Box display="flex">
+      <p>
+        Welcom,
+        <SC.UserIcon /> {user === null || user === void 0 ? void 0 : user.name}
+      </p>
+      <Button_1.Button margin="0 0 0 16px" type="button" onClick={userLogout}>
+        Logout
+      </Button_1.Button>
+    </Box_1.Box>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.UserMenu = UserMenu;
+//# sourceMappingURL=UserMenu.jsx.map

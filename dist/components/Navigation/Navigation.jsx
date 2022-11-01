@@ -23,14 +23,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Filter = void 0;
-const SC = __importStar(require("./Filter.styled"));
-const Filter = ({ value, onChange }) => {
-    return (<SC.InputWrap>
-      <label htmlFor="filter">
-        <SC.Input type="text" name="filter" value={value} onChange={onChange} placeholder="Find contacts by name"/>
-      </label>
-    </SC.InputWrap>);
+exports.Navigation = void 0;
+const useAuth_1 = require("hooks/useAuth");
+const Box_1 = require("components/Box/Box");
+const SC = __importStar(require("./Navigation.styled"));
+const Navigation = () => {
+    const { isLogined } = (0, useAuth_1.useAuth)();
+    return (<Box_1.Box as="nav">
+      <Box_1.Box as="ul" display="inline-flex" gridGap={5}>
+        <SC.Item>
+          <SC.Link to="/" end>
+            Home
+          </SC.Link>
+        </SC.Item>
+        {isLogined && (<SC.Item>
+            <SC.Link to="/contacts">Contacts</SC.Link>
+          </SC.Item>)}
+      </Box_1.Box>
+    </Box_1.Box>);
 };
-exports.Filter = Filter;
-//# sourceMappingURL=Filter.js.map
+exports.Navigation = Navigation;
+//# sourceMappingURL=Navigation.jsx.map
