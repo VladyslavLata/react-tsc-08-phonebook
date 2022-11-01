@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { SharedLayout } from './SharedLayout/SharedLayout.js';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute, RestrictedRoute } from 'utils';
 import { useAuth } from 'hooks/useAuth';
-import { Home } from 'pages/Home.js';
+import { Home } from 'pages/Home';
 
 const ContactsPage = lazy(() => import('pages/Contacts'));
 const LoginPage = lazy(() => import('pages/Login'));

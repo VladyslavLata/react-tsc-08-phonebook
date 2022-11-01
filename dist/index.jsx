@@ -24,4 +24,4 @@ client_1.default.createRoot(document.getElementById('root')).render(<react_1.def
       </react_redux_1.Provider>
     </styled_components_1.ThemeProvider>
   </react_1.default.StrictMode>);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.jsx.map

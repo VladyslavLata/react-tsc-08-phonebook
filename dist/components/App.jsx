@@ -27,11 +27,11 @@ exports.App = void 0;
 const react_router_dom_1 = require("react-router-dom");
 const react_1 = require("react");
 const react_redux_1 = require("react-redux");
-const SharedLayout_js_1 = require("./SharedLayout/SharedLayout.js");
+const SharedLayout_1 = require("./SharedLayout/SharedLayout");
 const operations_1 = require("redux/auth/operations");
 const utils_1 = require("utils");
 const useAuth_1 = require("hooks/useAuth");
-const Home_js_1 = require("pages/Home.js");
+const Home_1 = require("pages/Home");
 const ContactsPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Contacts'))));
 const LoginPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Login'))));
 const RegisterPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Register'))));
@@ -42,8 +42,8 @@ const App = () => {
         dispatch((0, operations_1.refreshUser)());
     }, [dispatch]);
     return isRefreshing ? (<b>Loading...</b>) : (<react_router_dom_1.Routes>
-      <react_router_dom_1.Route path="/" element={<SharedLayout_js_1.SharedLayout />}>
-        <react_router_dom_1.Route index element={<Home_js_1.Home />}/>
+      <react_router_dom_1.Route path="/" element={<SharedLayout_1.SharedLayout />}>
+        <react_router_dom_1.Route index element={<Home_1.Home />}/>
         <react_router_dom_1.Route path="contacts" element={<utils_1.PrivateRoute redirectTo="/login" component={<ContactsPage />}/>}/>
         <react_router_dom_1.Route path="login" element={<utils_1.RestrictedRoute redirectTo="/contacts" component={<LoginPage />}/>}/>
         <react_router_dom_1.Route path="register" element={<utils_1.RestrictedRoute redirectTo="/contacts" component={<RegisterPage />}/>}/>

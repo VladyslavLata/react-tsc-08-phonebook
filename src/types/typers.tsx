@@ -31,7 +31,7 @@ export interface IAuthState {
 }
 
 export interface IContactsState {
-  items: IItem[] | [];
+  items: IItem[];
   isLoading: boolean;
   error: string | null;
   filter: string;
@@ -41,3 +41,4 @@ export interface IState {
   auth: IAuthState;
   contacts: IContactsState;
 }
+
