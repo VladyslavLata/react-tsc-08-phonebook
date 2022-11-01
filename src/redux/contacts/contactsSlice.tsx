@@ -3,15 +3,18 @@ import { fetchContacts, addNewContact, deleteContact } from './operations';
 import { logout } from 'redux/auth/operations';
 import { IContactsState, IItem } from 'types/typers';
 
-
-const handlePending = (state: IContactsState)=> {
+const handlePending = (state: IContactsState) => {
   state.isLoading = true;
 };
 
-const handleRejected = (state: IContactsState, action: PayloadAction<string|undefined>) => {
+const handleRejected = (
+  state: IContactsState,
+  action: PayloadAction<string | undefined>
+) => {
   state.isLoading = false;
-  if (action.payload) { state.error = action.payload}
- 
+  if (action.payload) {
+    state.error = action.payload;
+  }
 };
 
 const initialState: IContactsState = {
@@ -34,33 +37,38 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.pending, handlePending)
       .addCase(
         fetchContacts.fulfilled,
-        (state, action: PayloadAction<IItem[]|[]>) => {
+        (state, action: PayloadAction<IItem[] | []>) => {
           state.isLoading = false;
           state.items = action.payload;
           state.error = null;
         }
-    )
-      .addCase(fetchContacts.rejected, handleRejected
       )
+      .addCase(fetchContacts.rejected, handleRejected)
       .addCase(addNewContact.pending, handlePending)
-    .addCase(addNewContact.fulfilled, (state, action:PayloadAction<IItem>) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items.unshift(action.payload);
-    })
+      .addCase(
+        addNewContact.fulfilled,
+        (state, action: PayloadAction<IItem>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.items.unshift(action.payload);
+        }
+      )
       .addCase(addNewContact.rejected, handleRejected)
-    .addCase (deleteContact.fulfilled, (state, action: PayloadAction<string>) => {
-        state.error = null;
-        const contactIndex = state.items.findIndex(
-          item => item.id === action.payload
-        );
-        state.items.splice(contactIndex, 1);
-    })
+      .addCase(
+        deleteContact.fulfilled,
+        (state, action: PayloadAction<string>) => {
+          state.error = null;
+          const contactIndex = state.items.findIndex(
+            item => item.id === action.payload
+          );
+          state.items.splice(contactIndex, 1);
+        }
+      )
       .addCase(deleteContact.rejected, handleRejected)
-    .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.items = [];
-      })
-  }
+      });
+  },
 });
 
 export const contactsReducer = contactsSlice.reducer;

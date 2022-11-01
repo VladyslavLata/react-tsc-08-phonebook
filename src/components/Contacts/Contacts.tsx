@@ -5,10 +5,10 @@ import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { VscClose } from 'react-icons/vsc';
 
 interface IProps {
-  onRemoveContact: (name: string) => void,
+  onRemoveContact: (name: string) => void;
 }
 
-export const Contacts:React.FC<IProps> = ({ onRemoveContact }) => {
+export const Contacts: React.FC<IProps> = ({ onRemoveContact }) => {
   const visibleContacts = useSelector(selectVisibleContacts);
   return (
     <SC.ContactsList>
@@ -26,4 +26,3 @@ export const Contacts:React.FC<IProps> = ({ onRemoveContact }) => {
     </SC.ContactsList>
   );
 };
-

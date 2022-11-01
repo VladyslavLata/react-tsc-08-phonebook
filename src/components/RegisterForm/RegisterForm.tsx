@@ -8,7 +8,6 @@ import {
   Label,
 } from 'components/PhonebookForm/Phonebook.styled';
 import { useAppDispatch } from 'hooks/TSReduxHooks';
-// import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { Button } from 'components/Button/Button';
 import { IValueForm } from 'types/typers';
@@ -26,9 +25,11 @@ const initialValues = {
 };
 
 export const RegisterForm: React.FC = () => {
-  const dispatch = useAppDispatch()
-  // const dispatch = useDispatch();
-  const handleSubmit = (values: IValueForm, actions: FormikHelpers<IValueForm>) => {
+  const dispatch = useAppDispatch();
+  const handleSubmit = (
+    values: IValueForm,
+    actions: FormikHelpers<IValueForm>
+  ) => {
     dispatch(register({ ...values }));
     actions.resetForm();
   };

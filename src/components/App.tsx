@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
-import { useDispatch } from 'react-redux';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute, RestrictedRoute } from 'utils';
 import { useAuth } from 'hooks/useAuth';
+import { useAppDispatch } from 'hooks/TSReduxHooks';
 import { Home } from 'pages/Home';
 
 const ContactsPage = lazy(() => import('pages/Contacts'));
 const LoginPage = lazy(() => import('pages/Login'));
 const RegisterPage = lazy(() => import('pages/Register'));
 
-export const App = () => {
-  const dispatch = useDispatch();
+export const App: React.FC = () => {
+  const dispatch = useAppDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {

@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Button = void 0;
 const SC = __importStar(require("./Button.styled"));
-const Button = ({ margin = "0", disabled = false, type = 'submit', onClick, children, }) => {
+const Button = ({ margin = '0', disabled = false, type = 'submit', onClick, children, }) => {
     return (<SC.Button margin={margin} type={type} disabled={disabled} onClick={onClick}>
       {children}
     </SC.Button>);

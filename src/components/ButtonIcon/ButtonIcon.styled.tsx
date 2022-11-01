@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-
 interface IButtonStyled {
-  position: string[],
-  size: string, 
+  position: string[];
+  size: string;
 }
 
 export const Button = styled.button<IButtonStyled>`

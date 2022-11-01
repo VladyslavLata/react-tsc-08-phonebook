@@ -14,7 +14,7 @@ import { MdOutlineAdd } from 'react-icons/md';
 import { useAppDispatch } from 'hooks/TSReduxHooks';
 import { IContactForm } from 'types/typers';
 
-const ContactsPage : React.FC = () => {
+const ContactsPage: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -35,12 +35,12 @@ const ContactsPage : React.FC = () => {
     return contacts.find(contact => contact.name === name);
   };
 
-  const addContact = (contact:IContactForm) => {
+  const addContact = (contact: IContactForm) => {
     dispatch(operations.addNewContact(contact));
     togleModal();
   };
 
-  const removeContact = (removeContactId:string) => {
+  const removeContact = (removeContactId: string) => {
     dispatch(operations.deleteContact(removeContactId));
   };
 

@@ -1,8 +1,8 @@
 import * as SC from './Filter.styled';
 
-interface IProps{ 
-  value: string,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>)=> void,
+interface IProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Filter: React.FC<IProps> = ({ value, onChange }) => {

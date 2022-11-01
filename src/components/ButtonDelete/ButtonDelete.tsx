@@ -4,14 +4,19 @@ import { Button } from './ButtonDelete.styled';
 import { Spinner } from 'components/Spinner/Spinner';
 import { selectErrorMessage } from 'redux/contacts/selectors';
 
-interface IProps{
-  onRemoveContact: (id: string) => void,
-  id: string,
-  index: number,
-  children:React.ReactNode, 
+interface IProps {
+  onRemoveContact: (id: string) => void;
+  id: string;
+  index: number;
+  children: React.ReactNode;
 }
 
-export const ButtonDelete: React.FC<IProps> = ({ onRemoveContact, id, index, children }) => {
+export const ButtonDelete: React.FC<IProps> = ({
+  onRemoveContact,
+  id,
+  index,
+  children,
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
   const error = useSelector(selectErrorMessage);
   if (error) {

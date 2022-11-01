@@ -51,7 +51,7 @@ const initialValues = {
     name: '',
     number: '',
 };
-const PhonebookForm = ({ onAddContact, onReviewName }) => {
+const PhonebookForm = ({ onAddContact, onReviewName, }) => {
     const loading = (0, react_redux_1.useSelector)(selectors_1.selectLoading);
     const handleSubmit = (values, actions) => {
         if (onReviewName(values.name)) {

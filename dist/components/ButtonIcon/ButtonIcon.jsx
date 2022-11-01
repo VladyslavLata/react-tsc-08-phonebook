@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonIcon = void 0;
 const SC = __importStar(require("./ButtonIcon.styled"));
-const ButtonIcon = ({ size, position, onClick, children }) => {
+const ButtonIcon = ({ size, position, onClick, children, }) => {
     return (<SC.Button size={size} position={position} onClick={() => onClick()}>
       {children}
     </SC.Button>);

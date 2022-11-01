@@ -2,8 +2,8 @@ import { Box } from 'components/Box/Box';
 import { SectionTitle } from './Sectio.styled';
 
 interface IProps {
-  title: string,
-  children: React.ReactNode,
+  title: string;
+  children: React.ReactNode;
 }
 
 export const Section: React.FC<IProps> = ({ title, children }) => (
@@ -12,4 +12,3 @@ export const Section: React.FC<IProps> = ({ title, children }) => (
     {children}
   </Box>
 );
-

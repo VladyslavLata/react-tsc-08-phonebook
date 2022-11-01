@@ -6,8 +6,8 @@ import * as SC from './Modal.styled';
 const modalEl = document.getElementById('modal')!;
 
 interface IProps {
-  onClose: ()=>void ,
-  children: React.ReactNode,
+  onClose: () => void;
+  children: React.ReactNode;
 }
 
 export const Modal: React.FC<IProps> = ({ onClose, children }) => {

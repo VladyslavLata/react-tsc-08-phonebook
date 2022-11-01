@@ -26,17 +26,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 const react_router_dom_1 = require("react-router-dom");
 const react_1 = require("react");
-const react_redux_1 = require("react-redux");
 const SharedLayout_1 = require("./SharedLayout/SharedLayout");
 const operations_1 = require("redux/auth/operations");
 const utils_1 = require("utils");
 const useAuth_1 = require("hooks/useAuth");
+const TSReduxHooks_1 = require("hooks/TSReduxHooks");
 const Home_1 = require("pages/Home");
 const ContactsPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Contacts'))));
 const LoginPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Login'))));
 const RegisterPage = (0, react_1.lazy)(() => Promise.resolve().then(() => __importStar(require('pages/Register'))));
 const App = () => {
-    const dispatch = (0, react_redux_1.useDispatch)();
+    const dispatch = (0, TSReduxHooks_1.useAppDispatch)();
     const { isRefreshing } = (0, useAuth_1.useAuth)();
     (0, react_1.useEffect)(() => {
         dispatch((0, operations_1.refreshUser)());

@@ -42,13 +42,19 @@ const initialValues = {
 };
 
 interface IProps {
-  onAddContact: (contact: IContactForm) => void,
-  onReviewName: (name: string)=>IItem|undefined,
+  onAddContact: (contact: IContactForm) => void;
+  onReviewName: (name: string) => IItem | undefined;
 }
 
-export const PhonebookForm: React.FC<IProps> = ({ onAddContact, onReviewName }) => {
+export const PhonebookForm: React.FC<IProps> = ({
+  onAddContact,
+  onReviewName,
+}) => {
   const loading = useSelector(selectLoading);
-  const handleSubmit = (values: IContactForm, actions: FormikHelpers<IContactForm>) => {
+  const handleSubmit = (
+    values: IContactForm,
+    actions: FormikHelpers<IContactForm>
+  ) => {
     if (onReviewName(values.name)) {
       alert(`${values.name} is already in contacts.`);
       return;
@@ -86,5 +92,3 @@ export const PhonebookForm: React.FC<IProps> = ({ onAddContact, onReviewName }) 
     </Formik>
   );
 };
-
-

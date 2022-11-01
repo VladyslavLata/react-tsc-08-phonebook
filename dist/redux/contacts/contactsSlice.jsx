@@ -49,10 +49,10 @@ exports.contactsSlice = (0, toolkit_1.createSlice)({
             state.items.splice(contactIndex, 1);
         })
             .addCase(operations_1.deleteContact.rejected, handleRejected)
-            .addCase(operations_2.logout.fulfilled, (state) => {
+            .addCase(operations_2.logout.fulfilled, state => {
             state.items = [];
         });
-    }
+    },
 });
 exports.contactsReducer = exports.contactsSlice.reducer;
 exports.filter = exports.contactsSlice.actions.filter;

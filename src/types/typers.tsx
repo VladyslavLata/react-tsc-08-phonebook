@@ -43,16 +43,16 @@ export interface IState {
 }
 
 export interface IPropsChildren {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export interface IValueForm {
-  name: string,
-  email: string,
-  password: string,
+  name: string;
+  email: string;
+  password: string;
 }
 
-export interface IContactForm{
-  name: string,
-  number: string,
+export interface IContactForm {
+  name: string;
+  number: string;
 }
