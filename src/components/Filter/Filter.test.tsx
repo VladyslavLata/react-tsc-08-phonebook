@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
+import userEvent from '@testing-library/user-event';
 import { Filter } from './Filter';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../constants/theme';
@@ -14,12 +14,10 @@ describe('Filter component', () => {
         <Filter value="" onChange={onChange} />
       </ThemeProvider>
     );
-    expect(
-      screen.getByRole("textbox")
-    ).toBeInTheDocument();
-  }); 
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
 
-   it('Filter find placeholder', () => {
+  it('Filter find placeholder', () => {
     render(
       <ThemeProvider theme={theme}>
         <Filter value="" onChange={onChange} />
@@ -28,18 +26,20 @@ describe('Filter component', () => {
     expect(
       screen.getByPlaceholderText(/find contacts by name/i)
     ).toBeInTheDocument();
-   });
-  
-   it('Filter placeholder hiden and work onChange', () => {
+  });
+
+  it('Filter placeholder hiden and work onChange', () => {
     render(
       <ThemeProvider theme={theme}>
         <Filter value="" onChange={onChange} />
       </ThemeProvider>
-     );
-     userEvent.type(screen.getByRole("textbox"), "Hello");
-     expect(onChange).toBeCalledTimes(5);
+    );
+    userEvent.type(screen.getByRole('textbox'), 'Hello');
+    expect(onChange).toBeCalledTimes(5);
     expect(
       screen.queryByPlaceholderText(/find contacts by name/i)
-     ).not.toBeDisabled();
+    ).not.toBeDisabled();
   });
+
+
 });
