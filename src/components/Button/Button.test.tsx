@@ -4,6 +4,7 @@ import { theme } from '../../constants/theme';
 import { Button } from './Button';
 import { screen, render } from '@testing-library/react';
 import  userEvent  from "@testing-library/user-event";
+import React from 'react';
 
 describe('Button element', () => {
 

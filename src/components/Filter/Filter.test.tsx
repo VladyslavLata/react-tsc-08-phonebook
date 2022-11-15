@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { Filter } from './Filter';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../constants/theme';
+import React from 'react';
 
 const onChange = jest.fn();
 
@@ -40,6 +41,4 @@ describe('Filter component', () => {
       screen.queryByPlaceholderText(/find contacts by name/i)
     ).not.toBeDisabled();
   });
-
-
 });

@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from "../../constants/theme";
 import { Message } from './Message';
 import { screen, render } from '@testing-library/react';
+import React from 'react';
 
 
 describe("Message element", () => {
